@@ -8,4 +8,4 @@ app.config.from_object('config')
 
 db = SQLAlchemy(app)
 
-import views, models
+import views, models, forms

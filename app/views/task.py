@@ -1,26 +1,22 @@
 __author__ = 'rchibana'
 
 from app import app
-from flask import render_template
+from flask import render_template, redirect, url_for, request
+from app.forms.task import TaskForm
 
-@app.route('/new')
+@app.route('/new-task')
 def new():
+    form = TaskForm()
+    # if request.method == 'get':
+    return render_template('task/new.html',
+                           form=form)
 
-    tasks = [
-        {'created': '04/02/2016',
-         'name': 'task1',
-         'priority': 'high',
-         'status': 'WIP'},
-        {'created': '03/02/2016',
-         'name': 'task2',
-         'priority': 'normal',
-         'status': 'TODO'},
-        {'created': '01/02/2016',
-         'name': 'task3',
-         'priority': 'normal',
-         'status': 'DONE'}
-    ]
 
-    return render_template('index.html',
-                           title='WTF',
-                           tasks=tasks)
+@app.route('/edit-task')
+def edit():
+    pass
+
+
+@app.route('/delete-task')
+def delete():
+    pass
